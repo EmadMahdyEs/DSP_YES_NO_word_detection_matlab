@@ -1,7 +1,6 @@
-function E = filter_and_FFT_func(yo1)
-    
+function E = filter_and_FFT_func(yo1,longest_signal)
+
     %step 1: padding the signal with zero to the longest signal 
-    longest_signal=26090;
     for k=length(yo1)+1:1:longest_signal
         yo1(k)=0;
     end
