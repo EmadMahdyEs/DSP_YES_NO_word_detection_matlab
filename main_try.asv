@@ -1,0 +1,10 @@
+clear;
+clc;
+
+
+[y,Fs]=audioread('./ProjectSounds/GoodNo/n9.wav');
+
+Y=FFT_Plot(y,Fs);
+
+y=Custom_bandpass_filter(y);
+Y=FFT_Plot(y,Fs);
