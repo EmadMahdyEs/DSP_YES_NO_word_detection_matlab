@@ -1,9 +1,8 @@
-function E_Others = calc_energies_in_Others_files()
-    scale_factor=1e7;
-    files = dir('./ProjectSounds/Others/*.wav') ; 
+function R_Others = calc_energies_in_Others_files()
+    files = dir('./ProjectSounds_noSine/Other/*.wav') ; 
     for i=1:1:length(files)
-        current_file=strcat('./ProjectSounds/Others/', files(i).name);
+        current_file=strcat('./ProjectSounds_noSine/Other/', files(i).name);
         [y,Fs] = audioread(current_file);
-        E_Others(i) = filter_and_FFT_func(y)*scale_factor;
+        R_Others(i) =highToLow_signal_energy_ratio_func(y);
     end
 end

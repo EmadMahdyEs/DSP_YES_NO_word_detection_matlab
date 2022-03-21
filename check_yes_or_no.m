@@ -1,11 +1,10 @@
-function yes_or_no = check_yes_or_no(file_name)
-    scale_factor=1e6;
+function yes_or_no = check_yes_or_no(file_name,T)
+   
     [y,Fs] = audioread(file_name);
-    E = filter_and_FFT_func(y)*scale_factor;
-
-    if E<20
-        yes_or_no='NO';
+    R=highToLow_signal_energy_ratio_func(y);
+    if R<T
+        yes_or_no='N';
     else
-        yes_or_no='YES';
+        yes_or_no='Y';
     end
 end
